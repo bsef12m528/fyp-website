@@ -1,0 +1,294 @@
+.navbar-default {
+    background-color: transparent;
+}
+
+    .navbar-default .navbar-nav > li > a {
+        color: white;
+    }
+
+.navbar-nav > li > a {
+    color: white;
+}
+
+
+#website-header {
+    background-color: darkred;
+}
+
+#top-header {
+    background-color: #333;
+}
+
+p {
+    text-align: justify;
+}
+
+.blue-heading {
+    color: #4d88ff;
+}
+
+.orange-heading {
+    color: orange;
+}
+
+.row {
+    margin-right: 0px;
+}
+
+.ul-how-it-works {
+    list-style-image: url('images/bullet_accept.png');
+}
+
+.news-headings {
+    background-color: lavender;
+    padding: 1%;
+    border-radius: 2%;
+    margin-bottom: 1%;
+}
+
+    .news-headings > .university {
+        color: orange;
+    }
+
+    .news-headings > .details {
+        background-color: whitesmoke;
+        padding: 2%;
+    }
+
+.questioner-option {
+    color: #4d88ff;
+}
+
+
+
+/* Login modal css*/
+
+#modal-body-custom
+{
+    padding:50px;
+}
+
+
+.bt-login, .bt-login:hover, .bt-login:active, .bt-login:focus {
+    background-color: #46b8da;
+    color: #ffffff;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    transition: background-color 300ms linear 0s;
+}
+
+
+.login-tab {
+    margin: 0 auto;
+    max-width: 380px;
+}
+
+.login-modal-header {
+    background: #860707;
+    color: #fff;
+}
+
+    .login-modal-header .modal-title {
+        color: #fff;
+    }
+
+    .login-modal-header .close {
+        color: #fff;
+    }
+
+.login-modal i {
+    color: #000;
+}
+
+.login-modal form {
+    max-width: 340px;
+}
+
+.tab-pane form {
+    margin: 0 auto;
+}
+
+.login-modal-footer {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+/*Quiz page*/
+.quiz-option {
+    width: 200px;
+    border-radius: 3px;
+    border: 1px solid #D1D3D4;
+}
+
+/* hide input */
+input.radio:empty {
+    margin-left: -999px;
+}
+
+    /* style label */
+    input.radio:empty ~ label {
+        position: relative;
+        float: left;
+        line-height: 2.5em;
+        text-indent: 3.25em;
+        margin-top: 2em;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+        input.radio:empty ~ label:before {
+            position: absolute;
+            display: block;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            content: '';
+            width: 2.5em;
+            background: #D1D3D4;
+            border-radius: 3px 0 0 3px;
+        }
+
+/* toggle hover */
+input.radio:hover:not(:checked) ~ label:before {
+    content: '\2714';
+    text-indent: .9em;
+    color: #C2C2C2;
+}
+
+input.radio:hover:not(:checked) ~ label {
+    color: #888;
+}
+
+/* toggle on */
+input.radio:checked ~ label:before {
+    content: '\2714';
+    text-indent: .9em;
+    color: #4d88ff;
+    background-color: #4DCB6D;
+}
+
+input.radio:checked ~ label {
+    color: #777;
+}
+
+/* radio focus */
+input.radio:focus ~ label:before {
+    box-shadow: 0 0 0 3px #999;
+}
+
+
+#quiz-container 
+{
+    border: 1px solid lightgrey;
+}
+
+
+#quiz-main-heading 
+{
+    font-size: 25px;
+    background-color: darkslategrey;
+    border: darkred;
+    color: white;
+    padding: 1%;
+}
+
+#quiz-progress
+ {
+    height: 5px;
+}
+
+
+/* Footer  */
+
+
+
+#footer 
+{
+    padding: 20px 0 0;
+    color: #fff;
+    /*background: #444;*/
+
+    background: #E8E8E4 url('../../images/dark.png') repeat left top;
+    border-top: 3px solid #4d88ff;
+
+
+}
+
+    #footer h3
+     {
+        margin: 0 0 10px 0;
+        font-size: 24px;
+        font-family: 'Myriad Pro', sans-serif;
+        border-bottom: 1px solid #555;
+        padding-bottom: 10px;
+        margin-bottom: 40px;
+    }
+
+    #footer .footer-links a 
+    {
+        display: block;
+        padding: 10px 25px;
+        color: #fff;
+        border-bottom: 1px solid #555;
+    }
+
+        #footer .footer-links a:hover 
+        {
+            background: #4c4c4c;
+            text-decoration: none;
+        }
+
+    #footer .footer-links li:first-child a 
+    {
+        border-top: 1px solid #555;
+    }
+
+    #footer .footer-separator
+     {
+        margin: 20px 0;
+        border-color: transparent;
+    }
+
+    #footer .col-md-5 h3
+     {
+        margin: 0;
+        padding: 0 0 10px 0;
+        border: none;
+    }
+
+    #footer .col-md-5 hr 
+    {
+        border-color: #555;
+        margin: 0px 0 40px;
+    }
+
+    #footer .col-md-5 a
+     {
+        color: #444;
+        background: #7c7c7c;
+        padding: 5px 10px;
+        border-radius: 50%;
+    }
+
+    #footer .copyright 
+    {
+        margin-top: 30px;
+        padding: 10px 20px;
+        font-size: 13px;
+        background-color: darkred;
+        text-align: center;
+    }
+
+        #footer .copyright a 
+        {
+            color: #fff;
+        }
+
+            #footer .copyright a:hover
+             {
+                text-decoration: none;
+            }

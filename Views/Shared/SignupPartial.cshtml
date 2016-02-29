@@ -1,0 +1,76 @@
+﻿@model DAL.Models.User
+
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+
+<script type="text/javascript">
+    var getresult = function (data) {
+
+        if (data.result == false) {
+            $("#signupResponseDiv").attr("class", "alert alert-danger");
+            $("#signupResponseDiv").show(200);
+            document.getElementById("signupResponseDiv").innerHTML = "Registration Failed<br>Make sure to use unique Email ID.";
+        }
+
+        else {
+            $("#signupResponseDiv").attr("class", "alert alert-success");
+            $("#signupResponseDiv").show(200);
+            document.getElementById("signupResponseDiv").innerHTML = "Successfully Registered.";
+        }
+    };
+
+
+    var duringload = function () {
+
+        $("#signupResponseDiv").attr("class", "alert");
+        $("#signupResponseDiv").show();
+        $("#signupResponseDiv").html("<img class='img-responsive' src='../../Images/loading.GIF'>");
+
+    }
+
+    var ajaxfaliure = function () {
+        $("#signupResponseDiv").attr("class", "alert alert-danger");
+        $("#signupResponseDiv").show(200);
+        document.getElementById("signupResponseDiv").innerHTML = "Failed to connect to server.";
+    }
+
+</script>
+
+
+@using (Ajax.BeginForm("Signup", "User", new AjaxOptions { OnBegin = "duringload",  HttpMethod = "POST", OnSuccess = "getresult", OnFailure = "ajaxfaliure" }))
+{
+    <div class="alert" id="signupResponseDiv" style="display:none;">
+
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-at"></i></div>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-at"></i></div>
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Name" })
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-at"></i></div>
+            @Html.TextBoxFor(m => m.Password, new { @type = "password", @class = "form-control", @placeholder = "Password" })
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+    </div>
+
+
+
+    <input type="submit" id="register_btn" class="btn btn-block bt-login" data-loading-text="Registering...." value="Register">
+    <div class="clearfix"></div>
+
+}

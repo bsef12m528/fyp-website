@@ -1,0 +1,72 @@
+﻿@model DAL.Models.User
+
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+
+
+<script type="text/javascript">
+    var resultSignin = function (data) {
+
+        if (data.result == false) {
+            $("#signinResponseDiv").attr("class", "alert alert-danger");
+            $("#signinResponseDiv").show(200);
+            document.getElementById("signinResponseDiv").innerHTML = "Login Failed<br>Enter correct Email ID or password.";
+        }
+
+        else {
+            $("#signinResponseDiv").attr("class", "alert alert-success");
+            $("#signinResponseDiv").show(200);
+            document.getElementById("signinResponseDiv").innerHTML = "Login successful.<bR>Redirecting...";
+            location.reload();
+        }
+    };
+
+
+    var signinLoad = function () {
+        $("#signinResponseDiv").attr("class", "alert");
+        $("#signinResponseDiv").show();
+        $("#signinResponseDiv").html("<img class='img-responsive' src='../../Images/loading.GIF'>");
+
+    }
+
+    var siginAjaxfaliure = function () {
+        $("#signinResponseDiv").attr("class", "alert alert-danger");
+        $("#signinResponseDiv").show(200);
+        document.getElementById("signinResponseDiv").innerHTML = "Failed to connect to server.";
+    }
+
+</script>
+
+
+@using (Ajax.BeginForm("Signin", "User", new AjaxOptions { OnBegin = "signinLoad", HttpMethod = "POST", OnSuccess = "resultSignin", OnFailure = "siginAjaxfaliure" }))
+{
+
+    <div class="alert" id="signinResponseDiv" style="display:none;">
+
+    </div>
+    
+    
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-user"></i></div>
+           @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+    </div>
+    
+    
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-lock"></i></div>
+            @Html.TextBoxFor(m => m.Password, new { @type = "password", @class = "form-control", @placeholder = "Password" })
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+    </div>
+
+    <input type="submit" id="login_btn" class="btn btn-block bt-login" data-loading-text="Signing In...." />
+    <div class="clearfix"></div>
+    
+    
+    
+    
+}

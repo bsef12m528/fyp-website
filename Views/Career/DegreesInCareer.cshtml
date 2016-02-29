@@ -1,0 +1,49 @@
+﻿@using DAL.Models
+
+@{
+    ViewBag.Title = "DegreesInCareer";
+    Layout = "~/Views/Shared/UserPage.cshtml";
+}
+
+@{ Career c = ViewBag.c; }
+
+<div class="container">
+    <h2 class="blue-heading page-header">@c.CareerName</h2>
+
+    <p>@c.Details</p>
+
+    <table class="table table-striped" >
+        <thead>
+            <tr>
+                <th>Degree</th>
+                <th>Duration</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach(DegreeCareer dc  in  c.DegreeCareers)
+            {
+                <tr>
+                    <td>
+                        @dc.Degree.DegreeName
+                         @if (dc.Degree.ShortName != null) 
+                         { 
+                             <label>(@dc.Degree.ShortName)</label>
+                         }
+                    
+                    <td>@dc.Degree.DegreeDuration</td>                                                                                                          </td>
+                    <td><button class="btn btn-success" onclick="window.location='/Degree/UniversitiesInDegree/@dc.Degree.Id'" >View respective Universities</button></td>
+                </tr>
+            }
+
+        </tbody>
+
+
+    </table>
+
+
+
+
+</div>
+

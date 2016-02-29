@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Career Quiz Instructions";
+    Layout = "~/Views/Shared/UserPage.cshtml";
+}
+
+
+<div class="container">
+    <h2 class="blue-heading page-header">Free Career Test</h2>
+    <div class="container">
+        <div class="col-sm-7">
+            <p>
+                CareerFitter Career Personality Test: Is specifically designed to determine your work personality. We immediately process your results and generate your report detailing your personality at work. Your reports helps you determine which careers and jobs will bring you the most success and satisfaction. We also evaluate a wide spectrum of your personality traits at work including strengths, weaknesses, styles, optimal environments, and other in depth characteristics of you at work.
+            </p>
+
+            <h3 class="orange-heading page-header">Why to choose BCC?</h3>
+            <p>With the exception of CareerFitter ­ most other online career tests are general personality tests. These "career tests" do not focus specifically on your personality at work. They combine your personality at both work and play. We consider these tests to be less effective when trying to determine a person's optimal career choices.</p>
+        </div>
+
+        <div class="col-sm-5">
+            <img class="img-responsive" src="~/Images/people.jpg" />
+        </div>
+    </div>
+    <div class="container">
+
+        <h3 class="blue-heading page-header">Quiz instrucations</h3>
+
+        <div class="col-sm-7">
+            <ul style="list-style-image: url('../../Images/bullet_accept.png'); font-weight: bold;">
+                <li>There are total <label class="orange-heading">30 </label> MCQS</li>
+                <li>You have to answer all mcqs</li>
+                <li>For moving to next question please don't navigate through browser buttons</li>
+                <li>You can change your choice by going to previous Mcqs</li>
+                <li>Check the best option to get accurate result</li>
+            </ul>
+
+        </div>
+
+        <div class="col-sm-5">
+            <button class="btn btn-success" onclick="window.location='/Questionnaire/Quiz'" style="font-size:20px; width:100%;">Start Quiz!</button>
+        </div>
+    </div>
+</div>

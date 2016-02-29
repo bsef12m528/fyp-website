@@ -1,0 +1,142 @@
+﻿@using DAL.Models
+
+@{
+    ViewBag.Title = "Career Quiz";
+    Layout = "~/Views/Shared/UserPage.cshtml";
+}
+
+@using DAL.Models
+
+
+
+
+
+<style>
+        /*@@media (min-width: 1200px) {
+            .container {
+                width: 950px;
+            }
+
+            #header{
+                width:1200px;
+            }
+        }*/
+
+</style>
+
+
+
+
+<br />
+<div class="container" id="quiz-main-heading">
+    Work Personality Analysis Test
+</div>
+<div class="container" id="quiz-container">
+
+    <div class="container">
+        <br />
+        <div id="" class="col-sm-11 alert alert-success" style="color:black">Please Do not navigate through browser's buttons!</div>
+        <div class="" style="clear:both"></div>
+        <hr />
+
+    </div>
+
+
+    <div class="container">
+        <br />
+        <h4 id="question">1. @ViewBag.list[0].Statement</h4>
+
+    </div>
+
+
+    <div class="container">
+        <div class="col-sm-4">
+            <input type="radio" name="option" id="radio1" value="2" class="radio" />
+            <label for="radio1" class="quiz-option">Like </label>
+        </div>
+
+
+        <div class="col-sm-4">
+            <input type="radio" name="option" id="radio2" value="1" class="radio" />
+            <label for="radio2" class="quiz-option">Neutral</label>
+        </div>
+
+
+        <div class="col-sm-4">
+            <input type="radio" name="option" id="radio3" value="0" class="radio" />
+            <label for="radio3" class="quiz-option">Dislike</label>
+        </div>
+
+    </div>
+
+
+
+    <br />
+
+    <br />
+    <br />
+    <br />
+
+    <div class="container">
+        <div class="col-sm-8 alert alert-danger" id="errorDiv" style="display:none;">
+            Please choose an option
+            <div class="col-sm-1 pull-right"><button class="btn btn-default" onclick="$(errorDiv).hide();">x</button></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-sm-2 pull-right">
+            <h3 id="completeness">5/12</h3>
+        </div>
+    </div>
+    <div class="progress" id="quiz-progress">
+        <div class="progress-bar" role="progressbar" id="progress-bar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+            <span class="sr-only">70% Complete</span>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-1">
+            <button class="btn btn-default" onclick="return previous_click();">Previous</button>
+        </div>
+
+        <div class="col-sm-1 pull-right">
+            <button class="btn btn-success" style="display:none" id="finish-button">Finish</button>
+            <button class="btn btn-default" id="next-button" onclick="return next_click();">Next</button>
+        </div>
+    </div>
+
+    <br />
+    <br />
+</div>
+
+
+
+
+
+
+<script src="~/Scripts/quiz.js"></script>
+
+<script>
+    var current = 0;
+    var arr = [];
+
+
+    @foreach (Question d in ViewBag.list)
+    {
+    @:var question = new Question( "@d.Id"  , "@d.Statement" );
+    @:arr.push(question);
+        }
+
+
+    update_question();
+
+    update_progressBar();
+    radio_change_event();
+
+
+
+
+</script>
+
+

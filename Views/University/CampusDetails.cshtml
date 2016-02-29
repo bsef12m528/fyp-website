@@ -1,0 +1,70 @@
+﻿@using DAL.Models;
+
+@{
+
+    ViewBag.Title = "Campus Details";
+    Layout = "~/Views/Shared/UserPage.cshtml";
+    UniversityCampuss campus = ViewBag.campus;
+
+}
+
+
+
+
+<div class="container">
+    <h3 class="blue-heading page-header"><label style="color: mediumaquamarine"> @campus.University.Name</label> - @campus.CampusTitle (@campus.AlternateName)</h3>
+
+    <h4 class="orange-heading page-header">Address</h4>
+    <p>@campus.Address, @campus.City.Name</p>
+
+    <h4 class="orange-heading page-header">Degrees</h4>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Degree</th>
+                <th>Duration</th>
+                <th>Degree System</th>
+                <th>Careers</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (CampusDegree degree in campus.CampusDegrees)
+            {
+                <tr>
+                    <td>
+                        @degree.Degree.DegreeName 
+                        
+                        @if (degree.Degree.ShortName == null || degree.Degree.ShortName == "")
+                        {
+                            
+                        }
+                        else
+                        {
+                            <p>(@degree.Degree.ShortName)</p>
+                        }
+                    </td>
+
+                    <td>@degree.Degree.DegreeDuration</td>
+                    <td>@degree.DegreeSystem</td>
+                    <td>
+                        @foreach(DegreeCareer dc in degree.Degree.DegreeCareers)
+                        {
+                            <u>@dc.Career.CareerName</u>                            <label>&nbsp;&nbsp;&nbsp;</label>
+                        }
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+</div>

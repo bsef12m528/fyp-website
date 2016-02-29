@@ -1,0 +1,65 @@
+﻿@using DAL.Models
+
+@{
+    ViewBag.Title = "UniversitiesInDegree";
+    Layout = "~/Views/Shared/UserPage.cshtml";
+
+
+    Degree d = ViewBag.d;
+}
+
+
+
+<div class="container">
+    <h2 class="blue-heading page-header">@d.DegreeName 
+        
+    @if (!(d.ShortName=="" || d.ShortName==null))
+    {
+         <label>(@d.ShortName) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>   
+        <label class="orange-heading">@d.DegreeDuration</label>
+        
+    }
+    
+    </h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>University</th>
+                <th>Campus</th>
+                <th>City</th>
+                <th>Degree System</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach(CampusDegree cd in d.CampusDegrees)
+            {
+                <tr>
+                    <td>
+                        @cd.UniversityCampuss.University.Name
+                    </td>
+                    <td>
+                        @cd.UniversityCampuss.CampusTitle
+                    </td>
+
+                    <td>
+                        @cd.UniversityCampuss.City.Name
+                    </td>
+
+                    <td>
+                        @cd.DegreeSystem
+                    </td>
+
+
+                </tr>
+                
+            }
+
+
+        </tbody>
+
+    </table>
+
+</div>
+

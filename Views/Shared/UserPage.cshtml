@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/font-awsome-min.css" rel="stylesheet" />
+
+
+
+
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+    <div class="row" id="website-header">
+        <h2></h2>
+
+        <div class="container">
+
+            <div class="col-sm-3">
+                <a href="~/Home/Index"><img class="img-responsive" src="~/Images/logo.png" /></a>
+            </div>
+            <div class="col-sm-7">
+
+                <nav class="navbar-default">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                            <ul class="nav navbar-nav">
+                                <li><a href="~/Home/HowItWorks">How it works</a></li>
+                                <li><a href="/Questionnaire/Instructions">Free Career Test</a></li>
+                                <li><a href="~/University/Index">Universities </a></li>
+                                <li><a href="newsfeed.html">Latest News </a></li>
+                                <li><a href="#">Contact Us </a></li>
+                            </ul>
+
+
+
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+
+                </nav>
+
+            </div>
+
+            <div class="col-sm-2">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    @if(Session["user"]==null)
+                    {
+                          <li><a href="javascript:;" data-toggle="modal" data-target="#loginModal">Login</a></li>
+                    }
+                    else
+                    {
+                       
+                              DAL.Models.User us = (DAL.Models.User) Session["user"];
+                              
+                          
+                        
+                        <li>
+
+                            <a href="" style="color: skyblue; font-weight:bold">@us.Name</a>
+
+                        </li>
+                        
+                        <li class="">
+
+                            <a href="/User/Logout">Logout</a>
+
+                        </li>
+                    }
+                  
+                </ul>
+            </div>
+
+        </div>
+        <h2></h2>
+    </div>
+    
+    
+    
+    
+    
+    
+    @RenderBody()
+
+
+
+    <br /><br />
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <ul class="list-unstyled footer-links">
+                                <li>
+                                    <a href="javascript:;" data-toggle="modal" data-target="#loginModal">Member Login</a>
+                                </li>
+
+                                <li>
+                                    <a href="">How Test Works?</a>
+                                </li>
+                                <li>
+                                    <a href="#">Top Universities</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-8">
+                            <h3>Latest News</h3>
+                            <ul class="list-unstyled footer-links">
+                                <li>
+                                    <a href="">Workshop on COMSOL Multiphyscis by ICE-NUCES Student Chapter</a>
+                                </li>
+                                <li>
+                                    <a href="">President announces posthumous honor for Agha Hasan Abedi</a>
+                                </li>
+                                <li>
+                                    <a href="">The BS(AF) degree program offered at Lahore Campus has been Accredited by ACCA UK</a>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+                <hr class="footer-separator visible-xs">
+                <div class="col-md-5" id="contact-area">
+                    <div class="row">
+                        <div class="col-xs-7">
+                            <h3>
+                                <a href="" style="color:#fff; background-color:#444444;">Contact</a>
+                            </h3>
+                        </div>
+                        <div class="col-xs-5">
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-youtube"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="copyright">
+            <div class="row">
+                <span>Copyright © 2015 Bright Career Counseling</span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- -Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content login-modal">
+                <div class="modal-header login-modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="loginModalLabel">USER AREA</h4>
+                </div>
+                <div class="modal-body" id="modal-body-custom">
+                    <div class="text-center">
+                        <div role="tabpanel" class="login-tab">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a id="signin-taba" href="#home" aria-controls="home" role="tab" data-toggle="tab">Sign In</a></li>
+                                <li role="presentation"><a id="signup-taba" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Sign Up</a></li>
+                                <li role="presentation"><a id="forgetpass-taba" href="#forget_password" aria-controls="forget_password" role="tab" data-toggle="tab">Forget Password</a></li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active text-center" id="home">
+                                    &nbsp;&nbsp;
+                                    <span id="login_fail" class="response_error" style="display: none;">Loggin failed, please try again.</span>
+                                    <div class="clearfix"></div>
+
+
+                                    <!--user sign in form-->
+                                    @{Html.RenderPartial("~/Views/Shared/LoginPartial.cshtml"  );}
+
+
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="profile">
+                                    &nbsp;&nbsp;
+                                    <span id="registration_fail" class="response_error" style="display: none;">Registration failed, please try again.</span>
+                                    <div class="clearfix"></div>
+
+
+                                    <!--user sign up form-->
+                                    @{Html.RenderPartial("~/Views/Shared/SignupPartial.cshtml" ); }
+
+
+
+                                </div>
+                                <div role="tabpanel" class="tab-pane text-center" id="forget_password">
+                                    &nbsp;&nbsp;
+                                    <span id="reset_fail" class="response_error" style="display: none;"></span>
+                                    <div class="clearfix"></div>
+
+
+                                    <!--user forgot password form-->
+                                    <form id="forgotpasswordform">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                                <input type="text" class="form-control" name="femail" id="femail" placeholder="Email">
+                                            </div>
+                                            <span class="help-block has-error" data-error='0' id="femail-error"></span>
+                                        </div>
+
+                                        <button type="button" id="reset_btn" class="btn btn-block bt-login" data-loading-text="Please wait...">Forget Password</button>
+                                        <div class="clearfix"></div>
+                                        <div class="login-modal-footer">
+                                            <div class="row">
+                                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                                    <i class="fa fa-lock"></i>
+                                                    <a href="javascript:;" class="signin-tab"> Sign In </a>
+
+                                                </div>
+
+                                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                                    <i class="fa fa-check"></i>
+                                                    <a href="javascript:;" class="signup-tab"> Sign Up </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- - Login Model Ends Here -->
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

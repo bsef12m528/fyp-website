@@ -1,0 +1,59 @@
+﻿@using DAL.Models;
+
+
+@{
+    University uni = ViewBag.uni;
+    
+    ViewBag.Title = @uni.Name;
+    Layout = "~/Views/Shared/UserPage.cshtml";
+}
+
+
+
+<div class="container">
+    <div class="container">
+        <h2 class="blue-heading page-header">@uni.Name (@uni.AlternateName)</h2>
+        <br />
+
+        <div class="col-sm-7">
+            <p class="details  news-headings" style="padding:2%;">
+                @uni.Description
+            </p>
+        </div>
+
+        <div class="col-sm-5">
+            <img class="img-responsive" src="../../Images/universities/@(uni.Id).jpg" />
+        </div>
+
+    </div>
+    <div class="col-sm-12">
+        <h4 class="orange-heading page-header">WebAddress</h4>
+        <a target="_blank" href="@uni.WebAddress">@uni.WebAddress</a>
+        <h4 class="orange-heading page-header">University Campuses</h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Campus Name</th>
+                    <th>Address</th>
+                    <th>City, Province</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(UniversityCampuss campus in uni.UniversityCampusses)
+                {
+                    <tr>
+                        <td>@campus.CampusTitle (@campus.AlternateName)</td>
+                        <td>@campus.Address</td>
+                        <td>@campus.City.Name , @campus.City.Province</td>
+                        <td><button class="btn btn-success" onclick="window.location='/University/CampusDetails/@campus.Id'">Details</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+
