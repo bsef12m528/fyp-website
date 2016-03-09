@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/UserPage.cshtml";
+}
+
+@using DAL.Models;
+
+<div class="container">
+    <h3 class="page-header blue-heading">Latest News</h3>
+
+    <br /><br />
+
+   
+
+
+    @foreach (UniversityNewss un in ViewBag.list)
+    {
+        <div class="container news-headings">
+            <a class="col-sm-7 university" href="/University/UniversityDetails/@un.UniversityId">@un.University.Name</a>
+            <div class="col-sm-1"></div>
+            <h4 class="col-sm-4">@un.Date</h4>
+            <br />
+            <br />
+            <p class="details">
+                @un.Description
+            </p>
+            <button class="btn-primary pull-right">Details</button>
+        </div>
+    }
+
+
+
+
+
+
+</div>

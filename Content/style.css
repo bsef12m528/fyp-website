@@ -292,3 +292,26 @@ input.radio:focus ~ label:before {
              {
                 text-decoration: none;
             }
+
+
+
+            /**/
+        .news-headings {
+            background-color: lavender;
+            padding: 1%;
+            border-radius: 2%;
+            margin-bottom: 1%;
+        }
+
+            .news-headings > .university {
+                color: orange;
+            }
+
+            .news-headings > .details {
+                background-color: whitesmoke;
+                padding: 2%;
+            }
+
+            .news-headings > a{
+                font-size:20px;
+            }

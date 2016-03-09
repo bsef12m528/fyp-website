@@ -97,7 +97,7 @@ function generate_results() {
         //dataType: "json",
         success: function (data, status) {
             if (data == "success") {
-                window.location = "/Questionnaire/PersonalitySummary";
+                window.location = "/Report/PersonalitySummary";
             }
             else {
                 alert(data);

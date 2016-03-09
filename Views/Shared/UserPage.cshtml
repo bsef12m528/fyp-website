@@ -9,7 +9,6 @@
     <link href="~/Content/font-awsome-min.css" rel="stylesheet" />
 
 
-
     <script src="~/Scripts/jquery.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </head>
@@ -22,7 +21,7 @@
 
         <div class="container">
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <a href="~/Home/Index"><img class="img-responsive" src="~/Images/logo.png" /></a>
             </div>
             <div class="col-sm-7">
@@ -59,7 +58,7 @@
 
             </div>
 
-            <div class="col-sm-2">
+            <div class="col-sm-3">
 
                 <ul class="nav navbar-nav navbar-right">
 
@@ -76,7 +75,7 @@
                         
                         <li>
 
-                            <a href="" style="color: skyblue; font-weight:bold">@us.Name</a>
+                            <a href="/Report/UserReports" style="color: skyblue; font-weight:bold">@us.Name</a>
 
                         </li>
                         
@@ -98,10 +97,8 @@
     
     
     
+        @RenderBody()
     
-    @RenderBody()
-
-
 
     <br /><br />
     <div id="footer">

@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "UserReports";
+    Layout = "~/Views/Shared/UserPage.cshtml";
+}
+
+@using DAL.Models;
+
+
+
+
+<div class="container">
+@{Html.RenderPartial("~/Views/Shared/UserMenubar.cshtml");}
+
+    
+
+
+
+    <h3 class="blue-heading page-header">Your Personality Previous Analysis</h3>
+
+    <table class="table table-striped">
+        <thead> 
+            <tr>
+                <th>Date</th>
+                <th>Summary</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (UserTestReport utr in ViewBag.list)
+                    {
+                    <tr>
+                        <td>@utr.Date</td>
+                        <td>@utr.ReportSummary.Substring(0, 90) ...</td>
+                        <td><button class="btn btn-success" onclick="window.location = '/Report/ViewReport/@utr.Id'">View Full Report</button></td>
+                    </tr>
+                    }
+
+        </tbody>
+
+
+    </table>
+
+
+
+
+
+
+</div>
