@@ -49,7 +49,7 @@
     <div class="form-group">
         <div class="input-group">
             <div class="input-group-addon"><i class="fa fa-user"></i></div>
-           @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+           @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" , @Value="test@bcc.com" })
             @Html.ValidationMessageFor(model => model.Email)
         </div>
     </div>
@@ -58,7 +58,7 @@
     <div class="form-group">
         <div class="input-group">
             <div class="input-group-addon"><i class="fa fa-lock"></i></div>
-            @Html.TextBoxFor(m => m.Password, new { @type = "password", @class = "form-control", @placeholder = "Password" })
+            @Html.TextBoxFor(m => m.Password, new { @type = "password", @class = "form-control", @placeholder = "Password", @Value = "123" })
             @Html.ValidationMessageFor(model => model.Password)
         </div>
     </div>
