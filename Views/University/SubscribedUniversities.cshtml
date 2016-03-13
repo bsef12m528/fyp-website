@@ -6,39 +6,8 @@
 }
 <script src="~/Scripts/bootstrap-switch.js"></script>
 <div class="container">
-    <h2 class="blue-heading page-header">Popular Universities</h2>
+    <h4 class="blue-heading page-header">You have been subscribed to following universities</h4>
     <br />
-    <div class="container">
-        <div class="col-sm-3">
-            <select class="form-control">
-                <option>All</option>
-                <option>Government</option>
-                <option>Private</option>
-            </select>
-        </div>
-        <div class="col-sm-3">
-            <select class="form-control">
-                <option>All fields</option>
-                <option>Engenring</option>
-                <option>Medical</option>
-                <option>Fine Arts</option>
-                <option>Information Technology</option>
-            </select>
-        </div>
-        <div class="col-sm-3">
-            <select class="form-control">
-                <option>Adress</option>
-                <option>Lahore</option>
-                <option>Sahiwal</option>
-                <option>Karachi</option>
-                <option>Sharqpur</option>
-            </select>
-        </div>
-        <div class="col-sm-1">
-            <button type="button" class="btn btn-primary pull-right">Search</button>
-        </div>
-    </div>
-    <hr />
 
     <div class="container">
         <table class="table table-striped">
@@ -60,7 +29,7 @@
                         <td>@uni.Name (@uni.AlternateName)</td>
                         <td>@uni.Sector</td>
                         <td>
-                            
+
                             <input type='checkbox' name='checkbox_@uni.Id' />
 
                             @if (@uni.IsSubscribed)
@@ -68,24 +37,24 @@
                                 <script>
                                     $("[name='checkbox_@uni.Id']").prop('checked', true);
                                 </script>
-                            } 
+                            }
 
 
                             <script>
                                 $("[name='checkbox_@uni.Id']").bootstrapSwitch({ size: 'sm' });
                                 $("[name='checkbox_@uni.Id']").change(function () {
-                                    if (this.checked) 
+                                    if (this.checked)
                                     {
                                         thisurl = '/University/AddSubscription/';
                                         //alert('checked');
                                     }
-                                        
+
                                     else if (!this.checked)
                                     {
                                         //alert('not checked');
                                         thisurl = '/University/DeleteSubscription/';
                                     }
-                                     
+
                                     zz = this.name;
                                     yy = zz.replace("checkbox_", "");
 
@@ -108,13 +77,13 @@
                                         }
                                     });
 
-                                 
+
                                 });
 
                             </script>
 
-                           
-                        
+
+
                         </td>
                         <td><button type="button" class="btn btn-success" onclick="window.location='/University/UniversityDetails/@uni.Id'">Details</button> </td>
                     </tr>
