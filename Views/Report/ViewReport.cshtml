@@ -1,4 +1,12 @@
-﻿@using DTOs
+﻿<meta property="og:url" content="http://www.your-domain.com/your-page.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Your Website Title" />
+<meta property="og:description" content="Your description" />
+<meta property="og:image" content="http://www.your-domain.com/path/image.jpg" />
+
+
+
+@using DTOs
 
 @{
     ViewBag.Title = "Report";
@@ -7,7 +15,13 @@
 
 @{ UserTestReport rpt = ViewBag.Report; }
 
-<div class="container">
+<style>
+#mydiv{
+    border:1px solid black;
+}
+</style>
+
+<div class="container" id="mydiv">
 
     <h3 class="blue-heading page-header">
         Your work personality Summary
@@ -71,5 +85,68 @@
 
     </table>
 
+ 
 
+</div>
+
+<button id="btnSave">Click me please</button>
+
+<div id="img-out"></div>
+
+
+
+<script src="~/Scripts/canvas2image.js"></script>
+<script src="~/Scripts/html2canvas.js"></script>
+
+<script>
+    $("#btnSave").click(function () {
+
+        //alert("hi");
+
+        html2canvas($("#mydiv"), {
+            onrendered: function (canvas) {
+                theCanvas = canvas;
+                //document.body.appendChild(canvas);
+                var image = new Image();
+                image.src = canvas.toDataURL("image/png");
+
+
+
+                // Convert and download as image 
+                //Canvas2Image.saveAsPNG(canvas);
+                $("#img-out").append(image);
+                // Clean up 
+                //document.body.removeChild(canvas);
+            }
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '893922077385767',
+            xfbml: true,
+            version: 'v2.5'
+        });
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+<div class="fb-like"
+     data-share="true"
+     data-width="450"
+     data-show-faces="true">
 </div>
