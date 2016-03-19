@@ -17,7 +17,8 @@
             $("#signinResponseDiv").attr("class", "alert alert-success");
             $("#signinResponseDiv").show(200);
             document.getElementById("signinResponseDiv").innerHTML = "Login successful.<bR>Redirecting...";
-            location.reload();
+            //location.reload();
+            window.location = "/Home/Index";
         }
     };
 

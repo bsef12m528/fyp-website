@@ -4,44 +4,20 @@
     ViewBag.Title = "Universities";
     Layout = "~/Views/Shared/UserPage.cshtml";
 }
+
+
+<link href="~/Content/Jquery-DataTables.css" rel="stylesheet" />
+<script src="~/Scripts/Jquery-DataTables.js"></script>
+<script src="~/Scripts/Jquery-DataTables-bootstrap.js"></script>
 <script src="~/Scripts/bootstrap-switch.js"></script>
+
+
 <div class="container">
     <h2 class="blue-heading page-header">Popular Universities</h2>
     <br />
-    <div class="container">
-        <div class="col-sm-3">
-            <select class="form-control">
-                <option>All</option>
-                <option>Government</option>
-                <option>Private</option>
-            </select>
-        </div>
-        <div class="col-sm-3">
-            <select class="form-control">
-                <option>All fields</option>
-                <option>Engenring</option>
-                <option>Medical</option>
-                <option>Fine Arts</option>
-                <option>Information Technology</option>
-            </select>
-        </div>
-        <div class="col-sm-3">
-            <select class="form-control">
-                <option>Adress</option>
-                <option>Lahore</option>
-                <option>Sahiwal</option>
-                <option>Karachi</option>
-                <option>Sharqpur</option>
-            </select>
-        </div>
-        <div class="col-sm-1">
-            <button type="button" class="btn btn-primary pull-right">Search</button>
-        </div>
-    </div>
-    <hr />
 
     <div class="container">
-        <table class="table table-striped">
+        <table class="table table-striped" id="myTable">
             <thead>
                 <tr>
                     <th>University</th>
@@ -126,7 +102,11 @@
     </div>
 
 </div>
-<script>
-    //$('#switch2').c_switch({ style: 'round', zoom: 1, switch_color_on: '#4CD964', });
 
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            responsive: true
+        });
+    });
 </script>

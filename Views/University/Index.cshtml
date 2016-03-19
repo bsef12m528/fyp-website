@@ -5,65 +5,47 @@
     Layout = "~/Views/Shared/UserPage.cshtml";
 }
 
+<link href="~/Content/Jquery-DataTables.css" rel="stylesheet" />
+<script src="~/Scripts/Jquery-DataTables.js"></script>
+<script src="~/Scripts/Jquery-DataTables-bootstrap.js"></script>
+
 
 <div class="container">
-<h2 class="blue-heading page-header">Popular Universities</h2>
-<br />
-<div class="container">
-    <div class="col-sm-3">
-        <select class="form-control">
-            <option>All</option>
-            <option>Government</option>
-            <option>Private</option>
-        </select>
-    </div>
-    <div class="col-sm-3">
-        <select class="form-control">
-            <option>All fields</option>
-            <option>Engenring</option>
-            <option>Medical</option>
-            <option>Fine Arts</option>
-            <option>Information Technology</option>
-        </select>
-    </div>
-    <div class="col-sm-3">
-        <select class="form-control">
-            <option>Adress</option>
-            <option>Lahore</option>
-            <option>Sahiwal</option>
-            <option>Karachi</option>
-            <option>Sharqpur</option>
-        </select>
-    </div>
-    <div class="col-sm-1">
-        <button type="button" class="btn btn-primary pull-right">Search</button>
-    </div>
-</div>
-<hr />
+    <h2 class="blue-heading page-header">Popular Universities</h2>
+    <br />
+    
 
-<div class="container">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>University</th>
-                <th>Sector</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach (University uni in ViewBag.list)
-            {
+    <div class="container">
+        <table class="table table-striped" id="myTable">
+            <thead>
                 <tr>
-                    <td>@uni.Name (@uni.AlternateName)</td>
-                    <td>@uni.Sector</td>
-                    <td><button type="button" class="btn btn-success" onclick="window.location='/University/UniversityDetails/@uni.Id'">Details</button></td>
+                    <th>University</th>
+                    <th>Sector</th>
+                    <th>Action</th>
                 </tr>
-            }
+            </thead>
+            <tbody>
 
-        </tbody>
-    </table>
+                @foreach (University uni in ViewBag.list)
+                {
+                    <tr>
+                        <td>@uni.Name (@uni.AlternateName)</td>
+                        <td>@uni.Sector</td>
+                        <td><button type="button" class="btn btn-success" onclick="window.location='/University/UniversityDetails/@uni.Id'">Details</button></td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
 
 </div>
 
-</div>
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            responsive: true
+        });
+    });
+</script>

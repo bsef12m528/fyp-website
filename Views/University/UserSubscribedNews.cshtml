@@ -17,7 +17,7 @@
     @foreach (UniversityNewss un in ViewBag.list)
     {
         <div class="container news-headings">
-            <a class="col-sm-8 university" href="/University/UniversityDetails/@un.UniversityId">@un.University.Name</a>
+            <a class="col-sm-8 university" href="/University/UniversityNews/@un.UniversityId">@un.University.Name</a>
             <div class="col-sm-1"></div>
             <h4 class="col-sm-3">@un.Date</h4>
             <br />
